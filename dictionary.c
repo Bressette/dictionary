@@ -67,6 +67,8 @@ int main(int argv, char argc)
     insertHash(5, 11);
     printf("The value of key 5 in hashTable is %d and key 5.1 is %d\n", hashTable[5].value, hashTable[6].value);
     printHash();
+    deleteHash(5);
+    printHash();
 
     return 0;
 
