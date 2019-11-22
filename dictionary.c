@@ -33,6 +33,31 @@ void insertHash(int key, int value)
 
 }
 
+void deleteHash(int key)
+{
+    int hashVal = hashCode(key);
+
+    for(int i = hashVal; i < size; i++)
+    {
+        if(hashTable[hashVal].key == key)
+        {
+            hashTable[hashVal].key = NULL;
+            hashTable[hashVal].value = NULL;
+        }
+    }
+}
+
+void printHash()
+{
+    for(int i = 0; i < size; i++)
+    {
+        if(hashTable[i].key != NULL)
+        {
+            printf("%d: %d\n", hashTable[i].key, hashTable[i].value);
+        }
+    }
+}
+
 
 int main(int argv, char argc)
 {
@@ -40,7 +65,8 @@ int main(int argv, char argc)
 
     insertHash(5,10);
     insertHash(5, 11);
-    printf("The value of key 5 in hashTable is %d and key 5.1 is %d", hashTable[5].value, hashTable[6].value);
+    printf("The value of key 5 in hashTable is %d and key 5.1 is %d\n", hashTable[5].value, hashTable[6].value);
+    printHash();
 
     return 0;
 
