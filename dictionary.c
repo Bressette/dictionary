@@ -48,6 +48,18 @@ void deleteHash(int key)
     }
 }
 
+void deleteDictionary()
+{
+    for(int i = 0; i < size; i++)
+    {
+        if(hashTable[i].key == NULL)
+            continue;
+
+        hashTable[i].key = NULL;
+        hashTable[i].value = NULL;
+    }
+}
+
 void printHash()
 {
     for(int i = 0; i < size; i++)
@@ -79,6 +91,9 @@ int main(int argv, char argc)
 
     fillDictionary();
 
+    printHash();
+
+    deleteDictionary();
     printHash();
 
     return 0;
