@@ -1,6 +1,6 @@
 #include "stdlib.h"
 #include "stdio.h"
-
+#include "time.h"
 #define size 20
 
 
@@ -49,26 +49,46 @@ void deleteValue(int key)
 
 
 }
+
+
 void printDict()
 {
     for(int i = 0; i < size; i++)
     {
-        node *temp = hashTable[i];
-        while(hashTable[i] != NULL)
+        if(hashTable[i] == NULL)
         {
-            printf("Index: %d Key: %d Value: %d\n", i, temp->key, temp->value);
-            temp = temp->next;
+            continue;
+        }
+
+        else
+        {
+            node *temp = hashTable[i];
+            while(temp != NULL)
+            {
+                printf("Index: %d Key: %d Value: %d\n", i, temp->key, temp->value);
+                temp = temp->next;
+            }
         }
     }
 
 }
 
+void fillDict()
+{
+    for(int i = 0; i < size; i++)
+    {
+        int key = rand() % 20 + 1;
+        int value = rand() % 100 + 1;
+        insertElement(key, value);
+    }
+}
+
 
 int main()
 {
-    insertElement(2, 5);
-    insertElement(2, 9);
-    insertElement(3, 6);
+    srand(time(0));
+    fillDict();
+
     printDict();
 
     return 0;
