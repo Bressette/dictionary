@@ -66,7 +66,7 @@ void printHash()
     {
         if(hashTable[i].key != NULL)
         {
-            printf("%d: %d\n", hashTable[i].key, hashTable[i].value);
+            printf("Index: %d Key: %d Value: %d\n", i, hashTable[i].key, hashTable[i].value);
         }
     }
 }
@@ -94,6 +94,8 @@ int main(int argv, char argc)
     printHash();
 
     deleteDictionary();
+
+    printf("After deleteDictionary");
     printHash();
 
     return 0;
