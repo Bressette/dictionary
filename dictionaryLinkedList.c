@@ -24,28 +24,52 @@ void insertElement(int key, int value)
 
     node *temp = hashTable[hashVal];
 
-    if(hashTable[size] == NULL)
+    if(hashTable[hashVal] == NULL)
     {
         hashTable[hashVal] = newNode;
     }
 
     else
     {
-        while(temp != NULL)
+        while(temp->next != NULL)
         {
             temp = temp->next;
         }
 
-        temp = newNode;
+        temp->next = newNode;
     }
+}
+
+void deleteValue(int key)
+{
+    int hashVal = key % size;
+
+    node *temp, *prev;
+
+
+
+}
+void printDict()
+{
+    for(int i = 0; i < size; i++)
+    {
+        node *temp = hashTable[i];
+        while(hashTable[i] != NULL)
+        {
+            printf("Index: %d Key: %d Value: %d\n", i, temp->key, temp->value);
+            temp = temp->next;
+        }
+    }
+
 }
 
 
 int main()
 {
     insertElement(2, 5);
+    insertElement(2, 9);
     insertElement(3, 6);
-    printf("The first key is %d", hashTable[3]->value);
+    printDict();
 
     return 0;
 }
